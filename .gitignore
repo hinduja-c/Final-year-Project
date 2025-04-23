@@ -1,174 +1,334 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# from django.shortcuts import render,HttpResponse,redirect
+# from django.contrib.auth.models import User
+# from django.contrib.auth import authenticate,login,logout
+# from django.contrib.auth.decorators import login_required
+# from django.shortcuts import render
+# import pickle
+# import numpy as np
+# from sklearn.preprocessing import StandardScaler
+# global scaler
+# from django.conf import settings
+# import os
+# from django.shortcuts import render
+# from django.core.files.storage import FileSystemStorage
+# from tensorflow.keras.models import load_model
+# import pathlib
+# import os
+# import numpy as np
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import PIL
+# from PIL import Image
+# import torchvision.transforms as transforms
+# import torch
+# from django.core.files.storage import FileSystemStorage
+# from django.http import HttpResponse
+# from django.shortcuts import render
+# import os
+# import numpy as np
+# import torchvision.models as models
+# from torch.utils.data import DataLoader, random_split
+# from torchvision.datasets import ImageFolder
+# import torch.optim as optim
+# import torch.nn as nn
+# from torch.optim.lr_scheduler import StepLR
+# import torch.optim as optim
+# import torch.nn.functional as F
+# from django.shortcuts import render
+# from django.core.files.storage import FileSystemStorage
+# from django.http import HttpResponse
+# from django.conf import settings
+# from PIL import Image
+# import torch
+# from torchvision import transforms
+# import os
+# import librosa
+# import joblib
+# from django.shortcuts import render
+# from django.core.files.storage import default_storage
+# from django.core.files.base import ContentFile
+# from django.conf import settings
+# from django.http import JsonResponse
+# import os
+# from django.shortcuts import render
+# from django.core.files.storage import default_storage
+# from django.core.files.base import ContentFile
+# from django.conf import settings
+# # Load the pre-trained model
+# MODEL_PATH = os.path.join(settings.BASE_DIR, 'alzheimer_speech_detection_model.pkl')
+# clf = joblib.load(MODEL_PATH)
 
-# C extensions
-*.so
+# # Feature extraction function
+# def extract_features(file_path):
+#     y, sr = librosa.load(file_path, sr=None)
+#     mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+#     mfccs_mean = np.mean(mfccs.T, axis=0)
+#     return mfccs_mean
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# import os
+# from django.shortcuts import render
+# from django.core.files.storage import default_storage
+# from django.core.files.base import ContentFile
+# from django.conf import settings
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# model = torch.load('alzeimer_alexnet_model.pth', map_location=device)
+# model = model.to(device)
 
-# Translations
-*.mo
-*.pot
+# def HomePage(request):
+#     return render (request,'home.html')
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# def SignupPage(request):
+#     if request.method=='POST':
+#         uname=request.POST.get('username')
+#         email=request.POST.get('email')
+#         pass1=request.POST.get('password1')
+#         pass2=request.POST.get('password2')
 
-# Flask stuff:
-instance/
-.webassets-cache
+#         if pass1!=pass2:
+#             return HttpResponse("Your password and confrom password are not Same!!")
+#         else:
 
-# Scrapy stuff:
-.scrapy
+#             my_user=User.objects.create_user(uname,email,pass1)
+#             my_user.save()
+#             return redirect('login')
+        
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-.pybuilder/
-target/
 
-# Jupyter Notebook
-.ipynb_checkpoints
+#     return render (request,'signup.html')
 
-# IPython
-profile_default/
-ipython_config.py
+# def LoginPage(request):
+#     if request.method=='POST':
+#         username=request.POST.get('username')
+#         pass1=request.POST.get('pass')
+#         user=authenticate(request,username=username,password=pass1)
+#         if user is not None:
+#             login(request,user)
+#             return redirect('index')
+#         else:
+#             return HttpResponse ("Username or Password is incorrect!!!")
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+#     return render (request,'login.html')
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+# def LogoutPage(request):
+#     logout(request)
+#     return redirect('home')
 
-# UV
-#   Similar to Pipfile.lock, it is generally recommended to include uv.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#uv.lock
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
+# @login_required(login_url='login')
+# def index(request):
+#     context={'a':1}
+#     return render(request, 'index.html')
 
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
-.pdm.toml
-.pdm-python
-.pdm-build/
+# def predictImage(request):
+#     if request.method == 'POST' and 'filePath' in request.FILES:
+#         # File handling
+#         fileObj = request.FILES['filePath']
+#         fs = FileSystemStorage()
+#         filePathName = fs.save(fileObj.name, fileObj)
+#         fileURL = fs.url(filePathName)
+#         filePath = os.path.join(settings.MEDIA_ROOT, filePathName)
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
+#         if not os.path.exists(filePath):
+#             return HttpResponse("File not found.")
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+#         # Load and preprocess the image
+#         image = Image.open(filePath)
 
-# SageMath parsed files
-*.sage.py
+#         # Convert to RGB if the image is not in RGB format
+#         if image.mode != 'RGB':
+#             image = image.convert('RGB')
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+#         transform = transforms.Compose([
+#             transforms.Resize((224, 224)),
+#             transforms.ToTensor(),
+#             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+#         ])
+#         image = transform(image).unsqueeze(0)  # Add batch dimension
 
-# Spyder project settings
-.spyderproject
-.spyproject
+#         # Predict the class
+#         image = image.to(device)
+#         model.eval()
+#         with torch.no_grad():
+#             outputs = model(image)
+#             _, predicted = torch.max(outputs, 1)
+#         class_names = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented',3: 'Very_Mild_Demented'}
+#         # Dictionary of class names and their descriptions
+#         class_descriptions = {
+#             'MildDemented': 'This stage is characterized by mild cognitive decline. Individuals may experience slight memory lapses and changes in their thinking skills.usually still possible to function independently, but activities requiring concentration,organization may become noticeably more difficult.',
+#             'ModerateDemented': 'At this stage, individuals often have greater difficulty with memory and may start to need assistance with daily activities. There can be confusion, significant memory loss, and difficulty recognizing friends and family members. Problems with language, reasoning, sensory processing, and conscious thought can become evident.',
+#             'NonDemented': 'This label indicates no signs of dementia. The individual cognitive functions are within normal limits,their age there are no noticeable symptoms of memory loss , cognitive impairment.',
+#             'Very_Mild_Demented': 'This is often referred to as the pre-dementia or mild cognitive impairment stage. Symptoms are not severe enough to interfere with daily life and activities, but the individual may notice memory lapses like forgetting familiar words or the location of everyday objects.'
+#         }
 
-# Rope project settings
-.ropeproject
+#         predicted_index = predicted.item()
+#         pred_label = class_names.get(predicted_index, "Unknown class")
+        
+#         # Fetch the description for the predicted label
+#         pred_description = class_descriptions.get(pred_label, 'No description available.')
 
-# mkdocs documentation
-/site
+#         # Prepare the context
+#         context = {
+#             'filePathName': fileURL, 
+#             'predictedLabel': pred_label, 
+#             'description': pred_description
+#         }
+        
+#         # Render the response
+#         return render(request, 'index.html', context)
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+#     # Handle case for non-POST requests
+#     return render(request, 'index.html')
 
-# Pyre type checker
-.pyre/
 
-# pytype static type analyzer
-.pytype/
+# def upload_audio(request):
+#     prediction = None  # Default value
+#     if request.method == "POST" and request.FILES.get('file'):
+#         audio_file = request.FILES['file']
+        
+#         # Save the file temporarily
+#         file_name = default_storage.save('uploads/' + audio_file.name, ContentFile(audio_file.read()))
+#         file_path = os.path.join(settings.MEDIA_ROOT, file_name)
 
-# Cython debug symbols
-cython_debug/
+#         # Extract features and predict
+#         features = extract_features(file_path)
+#         prediction = clf.predict([features])
+#         prediction = "Normal Speech" if prediction[0] == 0 else "Alzheimer's Speech"
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+#     return render(request, 'upload_audio.html', {"prediction": prediction})
 
-# Ruff stuff:
-.ruff_cache/
+from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage, default_storage
+from django.core.files.base import ContentFile
+import os
+import numpy as np
+import joblib
+import librosa
+import torch
+from PIL import Image
+import torchvision.transforms as transforms
 
-# PyPI configuration file
-.pypirc
+# Load the pre-trained models
+MODEL_PATH = os.path.join(settings.BASE_DIR, 'alzheimer_speech_detection_model.pkl')
+clf = joblib.load(MODEL_PATH)
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = torch.load('alzeimer_alexnet_model.pth', map_location=device)
+model = model.to(device)
+
+def extract_features(file_path):
+    y, sr = librosa.load(file_path, sr=None)
+    mfccs = librosa.feature.mfcc(y=y, sr=sr, n_mfcc=13)
+    mfccs_mean = np.mean(mfccs.T, axis=0)
+    return mfccs_mean
+
+def HomePage(request):
+    return render(request, 'home.html')
+
+def SignupPage(request):
+    if request.method == 'POST':
+        uname = request.POST.get('username')
+        email = request.POST.get('email')
+        pass1 = request.POST.get('password1')
+        pass2 = request.POST.get('password2')
+        if pass1 != pass2:
+            return HttpResponse("Your password and confirm password are not the same!")
+        my_user = User.objects.create_user(uname, email, pass1)
+        my_user.save()
+        return redirect('login')
+    return render(request, 'signup.html')
+
+def LoginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        pass1 = request.POST.get('pass')
+        user = authenticate(request, username=username, password=pass1)
+        if user is not None:
+            login(request, user)
+            next_url = request.GET.get('next') or request.POST.get('next') or 'index'
+            return redirect(next_url)
+        return HttpResponse("Username or Password is incorrect!")
+
+    return render(request, 'login.html', {'next': request.GET.get('next', '')})
+# def LoginPage(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         pass1 = request.POST.get('pass')
+#         user = authenticate(request, username=username, password=pass1)
+#         if user is not None:
+#             login(request, user)
+#             return redirect('index')
+#         return HttpResponse("Username or Password is incorrect!")
+#     return render(request, 'login.html')
+
+def LogoutPage(request):
+    logout(request)
+    return redirect('home')
+
+@login_required(login_url='login')
+def index(request):
+    return render(request, 'index.html')
+
+@login_required(login_url='login')
+def predictImage(request):
+    if request.method == 'POST' and 'filePath' in request.FILES:
+        fileObj = request.FILES['filePath']
+        fs = FileSystemStorage()
+        filePathName = fs.save(fileObj.name, fileObj)
+        fileURL = fs.url(filePathName)
+        filePath = os.path.join(settings.MEDIA_ROOT, filePathName)
+
+        if not os.path.exists(filePath):
+            return HttpResponse("File not found.")
+
+        image = Image.open(filePath).convert('RGB')
+        transform = transforms.Compose([
+            transforms.Resize((224, 224)),
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ])
+        image = transform(image).unsqueeze(0).to(device)
+
+        model.eval()
+        with torch.no_grad():
+            outputs = model(image)
+            _, predicted = torch.max(outputs, 1)
+
+        class_names = {0: 'MildDemented', 1: 'ModerateDemented', 2: 'NonDemented', 3: 'Very_Mild_Demented'}
+        class_descriptions = {
+            'MildDemented': 'Mild cognitive decline with minor memory lapses.',
+            'ModerateDemented': 'Significant memory loss and difficulty in daily tasks.',
+            'NonDemented': 'No signs of dementia, cognitive functions are normal.',
+            'Very_Mild_Demented': 'Pre-dementia stage with slight memory lapses.'
+        }
+
+        pred_label = class_names.get(predicted.item(), "Unknown class")
+        pred_description = class_descriptions.get(pred_label, 'No description available.')
+
+        return render(request, 'index.html', {'filePathName': fileURL, 'predictedLabel': pred_label, 'description': pred_description})
+    
+    return render(request, 'index.html')
+
+@login_required(login_url='login')
+def upload_audio(request):
+    prediction = None  # Default value
+    if request.method == "POST" and request.FILES.get('file'):
+        audio_file = request.FILES['file']
+        file_name = default_storage.save('uploads/' + audio_file.name, ContentFile(audio_file.read()))
+        file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+
+        if not os.path.exists(file_path):
+            return HttpResponse("Audio file not found.")
+
+        features = extract_features(file_path)
+        prediction = "Normal Speech" if clf.predict([features])[0] == 0 else "Alzheimer's Speech"
+        
+    return render(request, 'upload_audio.html', {"prediction": prediction})
+
