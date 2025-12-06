@@ -1,2 +1,7 @@
 # Final-year-Project
 Multimodal Alzheimer Diagnosis: Using Alexnet for MRI and Mel-Frequency Cepstral Coefficient for Speech Analysis
+
+The proposed method is evaluated using benchmark Alzheimer’s datasets, and performance metrics such as accuracy, precision, recall, and F1-score are reported. Preliminary results indicate that AlexNet with transfer learning outperforms traditional CNN architectures for MRI classification, while MFCC-based SVM achieves high precision in speech-based prediction. The combination of these approaches enhances detection capabilities, potentially aiding clinicians in early AD diagnosis. Future research will focus on refining model robustness, incorporating additional biomarkers, and optimizing multimodal fusion strategies for improved real-world applicability.
+
+This study demonstrates that leveraging CNNs for MRI analysis and machine learning for speech feature classification offers a promising pathway toward automated, non-invasive, and early-stage Alzheimer’s detection, ultimately facilitating better patient care and treatment planning.
+This proposed architectural diagram illustrates a multimodal system that combines speech processing and MRI image analysis to improve the precision of Alzheimer's disease detection. The system uses a structured workflow, using Machine Learning (Random Forest/SVM) for speech-based classification and Deep Learning (CNNs) for MRI classification.
